@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,9 @@ import com.springboot.JPA.model.Alien;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	AlienRepo alienRepo;
 	
 	@ModelAttribute
 	public void ModelData(Model m)
@@ -105,12 +109,20 @@ public class HomeController {
 	 * value="getAliens", method=RequestMethod.GET;
 	 * or value="getAliens", method=RequestMethod.POST;
 	 */
-	@GetMapping("getAliens")
+	/*@GetMapping("getAliens")
 	public String getAlien(Model m)
 	{
 		System.out.println("Add Controller6 is called.");
 		List<Alien> aliens = Arrays.asList(new Alien(1,"Pranjali"), new Alien(2,"Abul")); 
 		m.addAttribute("aliens", aliens);
+		return "getAliens";
+	}*/
+	
+	@GetMapping("getAliens")
+	public String getAlien(Model m)
+	{
+		System.out.println("Add Controller7 is called.");
+		m.addAttribute("aliens", alienRepo.findAll());
 		return "getAliens";
 	}
 
