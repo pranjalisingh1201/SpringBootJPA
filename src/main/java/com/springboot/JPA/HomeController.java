@@ -122,7 +122,7 @@ public class HomeController {
 	public String getAlien(Model m)
 	{
 		System.out.println("Add Controller7 is called.");
-		m.addAttribute("aliens", alienRepo.findAll());
+		m.addAttribute("aliens", alienRepo.findAll());//repo.save(a)//repo.getOne(aid)//Rollback and Commits are handled by JPA.
 		return "getAliens";
 	}
 
