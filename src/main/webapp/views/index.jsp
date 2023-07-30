@@ -22,5 +22,17 @@
 	Enter Aliens Name: <input type="text" name="aname"/><br>
 	<input type="submit"/>
 	</form>
+	<hr>
+	<form action="getAliensByAname">
+	<!--  Calls Add Controller-->
+	Enter Aliens Name: <input type="text" name="aname"/><br>
+	<input type="submit"/>
+	</form>
+	<hr>
+	<form action="getAliensByName">
+	<!--  Calls Add Controller-->
+	Enter Aliens Name: <input type="text" name="aname"/><br>
+	<input type="submit"/>
+	</form>
 </body>
 </html>

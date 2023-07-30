@@ -125,5 +125,21 @@ public class HomeController {
 		m.addAttribute("aliens", alienRepo.findAll());//repo.save(a)//repo.getOne(aid)//Rollback and Commits are handled by JPA.
 		return "getAliens";
 	}
+	
+	@GetMapping("getAliensByAname")
+	public String getAlienName(@RequestParam String aname,Model m)
+	{
+		System.out.println("Add Controller8 is called.");
+		m.addAttribute("aliens", alienRepo.findByAname(aname));//repo.save(a)//repo.getOne(aid)//Rollback and Commits are handled by JPA.
+		return "getAliens";
+	}
+	
+	@GetMapping("getAliensByName")
+	public String getAlienByName(@RequestParam String aname,Model m)
+	{
+		System.out.println("Add Controller9 is called.");
+		m.addAttribute("aliens", alienRepo.find(aname));//repo.save(a)//repo.getOne(aid)//Rollback and Commits are handled by JPA.
+		return "getAliens";
+	}
 
 }
